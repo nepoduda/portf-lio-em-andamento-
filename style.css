@@ -1,0 +1,766 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: Poppins, sans-serif;
+    background-color: #f8f0eb;
+    min-height: 100vh;
+    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  /* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333; /* Fundo escuro */
+    color: #f0f0f0; /* Texto claro */
+}
+
+body.dark-mode #header {
+    background-color: #222; /* Header escuro */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode #header h1 {
+    color: #FED8A6;
+}
+
+body.dark-mode #header .nav-links a {
+    background: #333;
+    border-color: #555;
+    color: #f0f0f0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #header .nav-links a:hover {
+    color: #DAA48F;
+    background-color: #444;
+}
+
+body.dark-mode #fieldset {
+    border-color: #555;
+    color: #f0f0f0;
+    background-color: #444;
+}
+
+body.dark-mode .container {
+    background-color: #444;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .content-left h3,
+body.dark-mode .content-left h1,
+body.dark-mode .content-left p {
+    color: #f0f0f0;
+}
+
+body.dark-mode .btn {
+    background-color: #555;
+    color: #FED8A6;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .btn:hover {
+    background-color: #666;
+}
+
+body.dark-mode .image-right img {
+    border-color: #555;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode section {
+    background: #444;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode #sobre-mim,
+body.dark-mode #minha-experiencia,
+body.dark-mode #projetos {
+    background: #555;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #sobre-mim h2,
+body.dark-mode #minha-experiencia h2,
+body.dark-mode #projetos h2,
+body.dark-mode #contato h2 {
+    color: #FED8A6;
+}
+
+body.dark-mode #sobre-mim p,
+body.dark-mode #minha-experiencia p {
+    border-color: #666;
+    background: #444;
+    color: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #minha-experiencia ul li,
+body.dark-mode #projetos ul li {
+    background: #444;
+    border-color: #666;
+    color: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #minha-experiencia ul li:hover,
+body.dark-mode #projetos ul li:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode #minha-experiencia ul li strong,
+body.dark-mode #projetos ul li strong {
+    color: #FED8A6;
+}
+
+body.dark-mode .btn-project {
+    background-color: #666;
+    color: #FED8A6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .btn-project:hover {
+    background-color: #777;
+}
+
+body.dark-mode .btn-project i {
+    color: #FED8A6;
+}
+
+body.dark-mode #contato {
+    background: #555;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode #contato p {
+    color: #e0e0e0;
+}
+
+body.dark-mode #contato .contact-links a {
+    background: #333;
+    border-color: #555;
+    color: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #contato .contact-links a:hover {
+    background-color: #444;
+    color: #DAA48F;
+}
+
+body.dark-mode #contato a i {
+    color: #f0f0f0;
+}
+
+body.dark-mode #contato a:hover i {
+    color: #DAA48F;
+}
+
+/* Estilo para o botão de dark mode no header */
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #684627; /* Cor inicial (modo claro) */
+    transition: color 0.3s ease;
+    margin-left: 20px; /* Ajuste a margem conforme necessário */
+}
+
+#dark-mode-toggle:hover {
+    color: rgb(48, 32, 18);
+}
+
+body.dark-mode #dark-mode-toggle {
+    color: #FED8A6; /* Cor no modo escuro */
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+    color: #DAA48F;
+}
+
+  #header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    padding: 18px 35px;
+    background-color: #f7c6c7;
+    box-shadow: #684627 0px 6px 18px -6px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 90px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  #header h1 {
+    font-size: 30px;
+    color: #684627;
+    height: auto;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+  
+  #header .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+  
+  #header a {
+    text-decoration: none;
+    background: #f7c6c7;
+    border: 2px solid #a87f61;
+    border-radius: 35px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    padding: 14px 28px;
+    color: rgb(104, 70, 39);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  #header a:hover {
+    color: rgb(48, 32, 18);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  }
+  
+  #fieldset {
+    border-radius: 45px;
+    font-size: 22px;
+    border: 4px dashed #9b7d61;
+    color: #684627;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 45px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    background-color: #fffaf7;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fffaf7;
+    border-radius: 35px;
+    box-shadow: 0 15px 35px rgba(223, 196, 155, 0.8);
+    padding: 80px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  
+  .content-left {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    padding-right: 60px;
+  }
+  
+  .content-left h3 {
+    font-size: 1.6em;
+    color: #684627;
+    margin-bottom: 10px;
+    letter-spacing: 0.8px;
+  }
+  
+  .content-left h1 {
+    font-size: 3.2em;
+    color: #684627;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  .content-left h1 span {
+    display: block;
+    font-size: 0.75em;
+    color: #684627;
+    font-weight: 500;
+  }
+  
+  .content-left p {
+    font-size: 1.3em;
+    color: #684627;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-bottom: 45px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 35px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.3em;
+    background-color: #684627;
+    color: #FED8A6;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+  
+  .btn:hover {
+    background-color: rgb(48, 32, 18);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  .image-right {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+  }
+  
+  .image-right img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border: 10px solid #DAA48F;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .image-right::before {
+    content: none;
+  }
+  
+  section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      padding: 35px;
+      background: #fffaf7;
+      border-radius: 30px;
+      box-shadow: 0 12px 30px rgba(223, 196, 155, 0.7);
+  }
+  
+  #fieldset {
+      margin-bottom: 20px;
+      margin-top: 50px;
+  }
+  
+  #sobre-mim,
+  #minha-experiencia,
+  #projetos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      background: #DFC49B;
+      padding: 60px;
+      border-radius: 35px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+  }
+  
+  #sobre-mim h2,
+  #minha-experiencia h2,
+  #projetos h2,
+  #contato h2 {
+      font-size: 20px;
+      color: #684627;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+  }
+  
+  #sobre-mim p,
+  #minha-experiencia p {
+      border: #f7c6c7 6px solid;
+      padding: 35px;
+      background: #fffaf7;
+      color: #684627;
+      border-radius: 35px;
+      font-size: 25px;
+      line-height: 2;
+      margin: 0;
+      max-width: 900px;
+      text-align: justify;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #minha-experiencia ul,
+  #projetos ul {
+      list-style: none;
+      padding: 0;
+      margin: 35px 0;
+      width: 100%;
+      max-width: 900px;
+      text-align: left;
+  }
+  
+  #minha-experiencia ul li,
+  #projetos ul li {
+      background: #fffaf7;
+      border: #f7c6c7 4px solid;
+      border-radius: 35px;
+      padding: 20px 30px;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #684627;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  #minha-experiencia ul li:hover,
+  #projetos ul li:hover {
+      transform: translateX(8px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  #minha-experiencia ul li strong,
+  #projetos ul li strong {
+      color: #4b301c;
+  }
+  
+  .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  
+  .btn-project {
+      padding: 12px 28px;
+      font-size: 1.7em;
+      border-radius: 30px;
+      background-color: #684627;
+      color: #FED8A6;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      display: flex; /* Adicionado para alinhar ícone e texto */
+      align-items: center; /* Adicionado para alinhar ícone e texto */
+      gap: 8px; /* Espaçamento entre ícone e texto */
+  }
+  
+  .btn-project:hover {
+      background-color: rgb(48, 32, 18);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  }
+  
+  .btn-project i { /* Estilo para os ícones dentro dos botões de projeto */
+      font-size: 1.1em; /* Tamanho do ícone */
+      color: #FED8A6; /* Cor do ícone */
+      transition: color 0.3s ease;
+  }
+  
+  #contato {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      background: #DFC49B;
+      padding: 70px;
+      border-radius: 35px;
+      box-shadow: 0 12px 30px rgba(104, 70, 39, 0.5);
+      width: 100%;
+      max-width: 950px;
+      text-align: center;
+  }
+  
+  #contato p {
+      font-size: 1.7em;
+      color: #8c5b3a;
+      line-height: 1.8;
+      margin-top: 0;
+      margin-bottom: 35px;
+      max-width: 850px;
+      text-align: center;
+  }
+  
+  #contato .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
+  }
+  
+  #contato a {
+      text-decoration: none;
+      background: #f7c6c7;
+      border: 4px solid #a87f61;
+      border-radius: 35px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease, transform 0.2s ease;
+      padding: 18px 35px;
+      color: rgb(104, 70, 39);
+      font-size: 1.1em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+  
+  #contato a:hover {
+      background-color: rgb(48, 32, 18);
+      color: #FED8A6;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  #contato a i {
+      font-size: 1.3em;
+      color: rgb(104, 70, 39);
+      transition: color 0.3s ease;
+  }
+  
+  #contato a:hover i {
+      color: #FED8A6;
+  }
+  
+  #footer {
+    background-color: #f7c6c7;
+    color: #684627;
+    text-align: center;
+    padding: 30px;
+    width: 100%;
+    margin-top: 70px;
+    box-shadow: #684627 0px -6px 18px -6px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  #footer p {
+    margin: 0;
+    font-size: 1.15em;
+    letter-spacing: 0.2px;
+  }
+  
+  @media (max-width: 1024px) {
+      .container, section {
+          max-width: 90%;
+          padding: 50px;
+      }
+      #sobre-mim, #minha-experiencia, #projetos, #contato {
+          max-width: 100%;
+          padding: 40px;
+      }
+      .content-left h1 {
+          font-size: 3.5em;
+      }
+      .content-left p {
+          font-size: 1.3em;
+      }
+      .btn {
+          font-size: 1.3em;
+          padding: 14px 32px;
+      }
+      #sobre-mim p, #minha-experiencia p {
+          font-size: 19px;
+          line-height: 1.8;
+      }
+      #minha-experiencia ul li, #projetos ul li {
+          font-size: 1.15em;
+      }
+      #sobre-mim h2, #minha-experiencia h2, #projetos h2, #contato h2 {
+          font-size: 32px;
+      }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+  
+    #header {
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 25px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    #header .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+    #header a {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+    }
+    #header h1 {
+        font-size: 20px;
+    }
+  
+    #fieldset {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        border-radius: 35px;
+    }
+  
+    .container {
+        flex-direction: column;
+        padding: 50px;
+        margin: 40px auto;
+        border-radius: 30px;
+    }
+  
+    .content-left, .image-right {
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+  
+    .content-left h1 {
+        font-size: 2em;
+    }
+  
+    .content-left p {
+        font-size: 1.2em;
+        margin-bottom: 35px;
+    }
+  
+    .buttons-left {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+    }
+  
+    .image-right {
+        margin-top: 50px;
+    }
+  
+    .image-right img {
+        max-width: 280px;
+        border-width: 8px;
+    }
+  
+    section {
+        padding: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-radius: 20px;
+    }
+  
+    #sobre-mim, #minha-experiencia, #projetos, #contato {
+        padding: 35px;
+        gap: 20px;
+        border-radius: 30px;
+    }
+  
+    #sobre-mim h2, #minha-experiencia h2, #projetos h2, #contato h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+  
+    #sobre-mim p, #minha-experiencia p {
+        font-size: 17px;
+        padding: 25px;
+        border-width: 4px;
+        border-radius: 30px;
+    }
+  
+    #minha-experiencia ul li, #projetos ul li {
+        font-size: 1.1em;
+        padding: 15px 22px;
+        margin-bottom: 15px;
+        border-width: 3px;
+        border-radius: 30px;
+    }
+      #contato p {
+          font-size: 1.1em;
+          margin-bottom: 25px;
+      }
+      #contato a {
+          font-size: 1.15em;
+          padding: 15px 30px;
+      }
+      #footer {
+          padding: 25px;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+      }
+      #footer p {
+          font-size: 1em;
+      }
+      .project-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+      }
+      .btn-project {
+          width: 85%;
+          max-width: 280px;
+          padding: 10px 20px;
+          font-size: 1.05em;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .container {
+          padding: 30px;
+      }
+      .content-left h1 {
+          font-size: 2.5em;
+      }
+      .content-left p {
+          font-size: 1.05em;
+      }
+      .btn {
+          font-size: 1.2em;
+          padding: 10px 25px;
+      }
+      #sobre-mim h2, #minha-experiencia h2, #projetos h2, #contato h2 {
+          font-size: 24px;
+      }
+      #sobre-mim p, #minha-experiencia p {
+          font-size: 16px;
+          padding: 20px;
+      }
+      #minha-experiencia ul li, #projetos ul li {
+          font-size: 1em;
+          padding: 12px 18px;
+      }
+      #fieldset {
+          font-size: 20px;
+          padding: 10px 25px;
+      }
+      #image-right img {
+        max-width: 220px;
+      }
+      .btn-project {
+          width: 95%;
+      }
+  }
